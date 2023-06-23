@@ -1,0 +1,23 @@
+#red{
+    color: red;
+}
+#yellow{
+    color: rgb(201, 201, 0);
+}
+.blue{
+    color: blue;
+}
+.flex{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+.soratra{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+.zow{
+    color: yellow;
+    margin-left: 20px;
+}

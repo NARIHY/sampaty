@@ -1,0 +1,60 @@
+#purple{
+    background-color: #692d91;
+}
+
+.centre{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #E23D28;
+}
+
+
+#red{
+    color: #E23D28;
+}
+
+.yellow{
+    color: #fffb00;
+    text-decoration: none;
+    margin-left: 20px;
+}
+.zow{
+    color: yellow;
+    margin-left: 20px;
+}
+
+.blue{
+    color: #0054A0;
+    transition: color 0.3s;
+}
+
+.blue:hover{
+    color: #0062be;
+}
+#red{
+    color: red;
+}
+#yellow{
+    
+    color: #3D8E33;
+    text-decoration: none;
+    list-style: none;
+}
+.blue{
+    color: blue;
+}
+.flex{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+.soratra{
+    text-align: justify;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#white{
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+

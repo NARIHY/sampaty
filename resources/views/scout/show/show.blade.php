@@ -3,8 +3,8 @@
 @section('title', $blog->title)
 
 @section('content')
-
-<ol class="breadcrumb p-3 bg-body-tertiary rounded-3">
+<div class="container">
+  <ol class="breadcrumb p-3 bg-body-tertiary rounded-3">
     <li class="breadcrumb-item">
       <a class="link-body-emphasis" href="/fianarana/index">
         
@@ -30,10 +30,14 @@
 
             @if($blog->image)
                 <div>
-                    <img src="/storage/{{$blog->image}}" alt="">
+                    <img src="/storage/{{$blog->image}}" alt="{{$blog->title}}">
                 </div>
             @endif
 
 
     </div>
+
+</div>
+
+
 @endsection

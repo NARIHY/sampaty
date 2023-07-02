@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\BlogControllers;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ContacteController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('scout.index');
 })->name('home');
+
+Route::post('/', [ContacteController::class, 'contacte'])->name('home.contact');
 
 Route::prefix('/blog')->name('Blog.')->group( function () {
     Route::get('/', [BlogControllers::class, 'index'])->name('index');

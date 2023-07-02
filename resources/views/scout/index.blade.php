@@ -7,7 +7,7 @@
     <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
       
       <h1>Donner aux jeunes  <br> les compétences et <br> les moyens de créer <br>un monde meilleur</h1>
-      <a href="" class="btn-get-started">Commencer à visiter</a>
+      <a href=" {{ route('Blog.index')}}" class="btn-get-started">Commencer à visiter</a>
     </div>
   </section>
   
@@ -110,12 +110,61 @@
 
     </div>
 
+    <div class="container" data-aos="fade-up">
+      <div class="row" data-aos="zoom-in" data-aos-delay="100">
+        
+        <h1 style="color:red;">Nous contacter</h1>
+        @if(session('success'))
+            <div class="alert alert-success" >
+                <p class="text-center">{{ session('success')}}</p>
+            </div>
+        @endif
+
+        <form action="" method="post">
+          @csrf
+          <label for="nom">Votre nom</label>
+          <input type="text" name="nom" class="form-control "  value="">
+          @error('nom')
+          <p style="color:red">
+            {{ $message}}
+          </p>
+          @enderror
+          <label for="prenon">Votre prénon</label>
+          
+          <input type="text" name="prenon" class="form-control "  value="">  
+          @error('prenon')
+          <p style="color:red">
+            {{ $message}}
+          </p>
+          @enderror
+          <label for="email">Votre addresse email</label>
+          
+          <input type="email" name="email" class="form-control "  value="">  
+          @error('email')
+          <p style="color:red">
+            {{ $message}}
+          </p>
+          @enderror
+          <label for="message">Votre message</label>
+          <textarea name="message" class="form-control " cols="30" rows="5" ></textarea>
+          @error('message')
+          <p style="color:red">
+            {{ $message}}
+          </p>
+          @enderror
+          <div class="d-grid gap-2">
+            <input type="submit" value="Envoyer" class="btn btn-primary" style="margin-top:4px;margin-bottom:10px">
+
+          </div>
+        </form>
+      </div>
+  </div>  
+</div>
+
     
 
   
-        <div class="cent">
-        <a href="" class="btn btn-outline-success">Cliquer ici pour voir plus d'information</a>
-        </div>
+        
           
       </div>
 

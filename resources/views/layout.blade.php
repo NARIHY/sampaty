@@ -48,8 +48,9 @@
               <li class="nav-item">
                 @php
                 $link = $menus->link;
-                @endphp
-                <a class="nav-link" aria-current="page" href="{{ route($link)}}" style="color: azure">{{$menus->title}}</a>
+                $routes = request()->route()->getName();
+                @endphp 
+                <a @class(['nav-link', 'active' => request()->route()->getName() === $menus->link]) aria-current="page" href="{{ route($link)}}" >{{$menus->title}}</a>
               </li>
             </ul>
           @endforeach
@@ -59,9 +60,9 @@
 
 </header>
 
-<div class="container">
+
   @yield('content')
-</div>
+
        
         
 

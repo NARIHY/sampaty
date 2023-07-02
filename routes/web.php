@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogControllers;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('scout.index');
+})->name('home');
+
+Route::prefix('/blog')->name('Blog.')->group( function () {
+    Route::get('/', [BlogControllers::class, 'index'])->name('index');
+    Route::get('/show/{slug}-{id}', [BlogControllers::class, 'show'])->name('show')->where([
+        'id' => '[0-9]+',
+        'slug' => '[a-z0-9\-]+'
+    ]);
+    Route::get('/actualite', [BlogControllers::class, 'actualite'])->name('actualite');
+    Route::get('/sampana', [BlogControllers::class, 'sampana'])->name('sampana');
+    Route::get('/propos', [BlogControllers::class, 'propos'])->name('propos');
 });

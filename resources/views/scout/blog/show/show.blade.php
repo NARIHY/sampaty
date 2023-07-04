@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('showLayout')
 
 @section('title', $blog->title)
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActualityControllers;
 use App\Http\Controllers\BlogControllers;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContacteController;
@@ -30,6 +31,10 @@ Route::prefix('/blog')->name('Blog.')->group( function () {
         'slug' => '[a-z0-9\-]+'
     ]);
     Route::get('/actualite', [BlogControllers::class, 'actualite'])->name('actualite');
+    Route::get('/actualite/{title}-{id}', [ActualityControllers::class, 'show'])->name('actuShow')->where([
+        'id' => '[0-9]+',
+        'slug' => '[a-z0-9\-]+'
+    ]);
     Route::get('/sampana', [BlogControllers::class, 'sampana'])->name('sampana');
     Route::get('/propos', [BlogControllers::class, 'propos'])->name('propos');
 });

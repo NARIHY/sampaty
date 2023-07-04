@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Actuality;
 use Illuminate\Http\Request;
 
 use App\Models\Blog;
@@ -29,7 +30,7 @@ class BlogControllers extends Controller
         if ($blog->slug !== $slug) {
             return redirect()->route('Blog.show', ['slug' => $blog->slug, 'id' => $blog->id]);
         }
-        return view('scout.show.show')->with('blog', $blog);
+        return view('scout.blog.show.show')->with('blog', $blog);
      }
 
      public function sampana()
@@ -39,7 +40,10 @@ class BlogControllers extends Controller
 
      public function actualite()
      {
-         return 'actualite';
+        $actuality = Actuality::orderBy('created_at', 'desc')->paginate(10);
+        return view('scout.actuality.index', [
+            'actuality' => $actuality
+        ]);
      }
      public function propos()
      {

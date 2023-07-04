@@ -5,6 +5,7 @@ use App\Http\Controllers\BlogControllers;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContacteController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SampanaContollers;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +36,18 @@ Route::prefix('/blog')->name('Blog.')->group( function () {
         'id' => '[0-9]+',
         'slug' => '[a-z0-9\-]+'
     ]);
-    Route::get('/sampana', [BlogControllers::class, 'sampana'])->name('sampana');
+    
     Route::get('/propos', [BlogControllers::class, 'propos'])->name('propos');
 });
+
+Route::prefix('/sampana')->name('Sampana.')->group( function() {
+    Route::get('/', [SampanaContollers::class, 'index'])->name('index');
+
+    Route::get('/Sampana-mavo', [SampanaContollers::class, 'mavo'])->name('mavo');
+
+    Route::get('/Sampana-maitso', [SampanaContollers::class, 'maitso'])->name('maitso');
+
+    Route::get('/Sampana-mena', [SampanaContollers::class, 'mena'])->name('mena');
+
+    Route::get('/Sampana-menafify', [SampanaContollers::class, 'menafify'])->name('menafify');
+}) ;

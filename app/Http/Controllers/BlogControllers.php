@@ -32,12 +32,6 @@ class BlogControllers extends Controller
         }
         return view('scout.blog.show.show')->with('blog', $blog);
      }
-
-     public function sampana()
-     {
-         return "sampana";
-     }
-
      public function actualite()
      {
         $actuality = Actuality::orderBy('created_at', 'desc')->paginate(10);

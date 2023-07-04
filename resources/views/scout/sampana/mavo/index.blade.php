@@ -1,6 +1,9 @@
 @extends('layout')
 
 @section('title', 'Sampana Mavo')
+@php 
+    $text = new App\Models\Text();
+@endphp
 
 @section('content')
     <div class="container">
@@ -13,7 +16,7 @@
                         <div class="col-lg-6 order-1 order-lg-2 aos-init aos-animate" data-aos="fade-left" data-aos-delay="100">
                             <h3>{{$mavos->title}}</h3>
                             <p style="font-family: Verdana, Geneva, Tahoma, sans-serif; text-align:justify">
-                            {{$mavos->content}}
+                            {{$text->excerpt($mavos->content)}}
                             </p>
                         </div>
                         <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">

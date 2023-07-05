@@ -2,6 +2,9 @@
 
 @section('title', $blog->title)
 
+@php 
+  $text = new App\Models\Text();
+@endphp
 @section('content')
 <div class="container">
   <ol class="breadcrumb p-3 bg-body-tertiary rounded-3">
@@ -26,7 +29,7 @@
 
             <h3>Sampana: {{$blog->category}}</h3>
 
-            <p style="text-align: justify">{{$blog->content}}</p>
+            <p style="text-align: justify">{{$text->filtre($blog->content)}}</p>
 
             @if($blog->image)
                 <div>

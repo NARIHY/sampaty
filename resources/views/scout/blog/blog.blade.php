@@ -7,7 +7,7 @@
     <div class="row mb-3 text-center" style="margin-top: 10px">
     
         @foreach($blog as $blogs)
-        <div class="col-4 themed-grid-col" style="margin-bottom: 10px">
+            <div class="col-4 themed-grid-col" style="margin-bottom: 10px">
                 <div class="card">
                     <img class="bd-placeholder-img card-img-top" width="100%" height="180" src="/storage/{{ $blogs->image }}" alt="">
                     <div class="card-body">

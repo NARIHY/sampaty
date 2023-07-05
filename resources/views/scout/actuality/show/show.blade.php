@@ -2,6 +2,10 @@
 
 @section('title', $actuality->title)
 
+@php
+  $text = new App\Models\Text();
+@endphp
+
 @section('content')
     <div class="container">
         <ol class="breadcrumb p-3 bg-body-tertiary rounded-3">
@@ -22,7 +26,7 @@
         </ol>
         <div>
             <h1 style="color: red">{{$actuality->title}}</h1>
-            <p style="text-align: justify; font-family: Verdana, Geneva, Tahoma, sans-serif;"> {{$actuality->content}} </p>
+            <p style="text-align: justify; font-family: Verdana, Geneva, Tahoma, sans-serif;"> {{$text->filtre($actuality->content)}} </p>
             <div class="row mb-3 text-center">
                 <div class="col-4 themed-grid-col"><img src="/storage/{{$actuality->picture}}" alt="{{$actuality->title}}" width="300px" height="auto"></div>
                 <div class="col-4 themed-grid-col"><img src="/storage/{{$actuality->picture_2}}" alt="{{$actuality->title}}" width="300px" height="auto"></div>

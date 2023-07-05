@@ -11,7 +11,7 @@ class ContacteController extends Controller
     public function contacte(ContacteRequest $request)
     {
         $contacte = Contacte::create($request->validated());
-        return redirect()->route('home')->with('success', 'Félicitation, votre message a bien été envoyer');
+        return redirect()->route('home')->with('success', 'Merci de nous avoir contacter');
     }
 
     

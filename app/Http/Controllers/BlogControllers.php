@@ -6,6 +6,11 @@ use App\Models\Actuality;
 use Illuminate\Http\Request;
 
 use App\Models\Blog;
+use App\Models\Maitso;
+use App\Models\Mavo;
+use App\Models\Mena;
+use App\Models\Menafify;
+use App\Models\Propos;
 use Illuminate\Contracts\Pagination\Paginator;
 
 class BlogControllers extends Controller
@@ -41,7 +46,14 @@ class BlogControllers extends Controller
      }
      public function propos()
      {
-         return "propos";
+        $propos = Propos::orderBy('created_at', 'desc')->paginate(5);
+        $blog = Blog::orderBy('created_at', 'desc')->paginate(2);
+        $actuality = Actuality::orderBy('created_at', 'desc')->paginate(2);
+        return view('scout.information.index', [
+            'propos' => $propos,
+            'blog' => $blog,
+            'actuality' => $actuality
+        ]);
      }
 
      

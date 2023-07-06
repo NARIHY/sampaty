@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\ActualityControllers;
+use App\Http\Controllers\AdminControlleur;
 use App\Http\Controllers\BlogControllers;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContacteController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MembreControlleur;
 use App\Http\Controllers\SampanaContollers;
 use Illuminate\Support\Facades\Route;
 
@@ -51,3 +53,14 @@ Route::prefix('/sampana')->name('Sampana.')->group( function() {
 
     Route::get('/Sampana-menafify', [SampanaContollers::class, 'menafify'])->name('menafify');
 }) ;
+
+//administration
+
+Route::prefix('/administration')->name('Admin.')->group( function () {
+    Route::get('/', [AdminControlleur::class, 'index'])->name('home');
+
+    //route ny membre
+    Route::get('/Membre', [AdminControlleur::class, 'membre'])->name('membre');
+    Route::get('/Membre/Ajouter-un-membre', [MembreControlleur::class, 'index'])->name('ajouterMembre');
+    Route::post('/Membre/Ajouter-un-membre', [MembreControlleur::class, 'create'])->name('validation');
+});

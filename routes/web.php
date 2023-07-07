@@ -63,7 +63,15 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     Route::get('/Membre', [AdminControlleur::class, 'membre'])->name('membre');
     Route::get('/Membre/Ajouter-un-membre', [MembreControlleur::class, 'index'])->name('ajouterMembre');
     Route::post('/Membre/Ajouter-un-membre', [MembreControlleur::class, 'create'])->name('validation');
-    Route::get('/Message-recu', [AdminControlleur::class, 'message'])->name('message');
     Route::get('/{id}/{nom}/edit', [MembreControlleur::class, 'modify'])->name('message.modify');
     Route::put('/{id}/{nom}/edit', [MembreControlleur::class, 'update'])->name('message.update');
+
+    //route message
+    Route::get('/Message-recu', [AdminControlleur::class, 'message'])->name('message');
+
+
+    //route actualiter
+    Route::get('/Actualite', [ActualityControllers::class, 'admin'])->name('actualite');
+    Route::get('/Actualite/ajouter-une-nouvelle-actualite', [ActualityControllers::class, 'create'])->name('actualite.create');
+    Route::post('/Actualite/ajouter-une-nouvelle-actualite', [ActualityControllers::class, 'store'])->name('actualite.create.store');
 });

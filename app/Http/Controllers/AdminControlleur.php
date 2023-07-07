@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Actuality;
 use App\Models\Blog;
+use App\Models\Contacte;
 use App\Models\Membre;
 use App\Models\Propos;
 use App\Models\Sampana;
@@ -30,6 +31,14 @@ class AdminControlleur extends Controller
         $membre = Membre::orderBy('created_at', 'asc')->paginate(25);
         return view('admin.membre.index', [
             'membre' => $membre
+        ]);
+    }
+
+    public function message()
+    {
+        $message = Contacte::orderBy('created_at', 'desc')->paginate(25);
+        return view('admin.contacte.index', [
+            'message' => $message
         ]);
     }
 }

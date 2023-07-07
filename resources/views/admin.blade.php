@@ -272,7 +272,7 @@
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="">
+        <a class="nav-link collapsed" href="{{route('Admin.message')}}">
             <i class="bi bi-chat-text-fill"></i>
           <span>Message reçu</span>
         </a>

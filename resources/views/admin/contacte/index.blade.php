@@ -8,30 +8,36 @@
             <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+              <th scope="col">Nom</th>
+              <th scope="col">Prénon</th>
+              <th scope="col">Email</th>
+              <th scope="col">Message</th>
+              <th scope="col">Envoyé le</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+           
+              @forelse ($message as $messages)
+              <tr>
+              <th scope="row">{{$messages->id}}</th>
+              <td>{{$messages->nom}}</td>
+              <td>{{$messages->prenon}}</td>
+              <td>{{$messages->email}}</td>
+              <td>{{$messages->message}}</td>
+              <td>{{$messages->created_at->format('d M Y')}}</td>    
+              @empty
+                  <div class="text-center">
+                        <h2>Aucun message pour le moment</h2>
+                  </div>
+             
+              
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
+            @endforelse
+            
             </tbody>
           </table>
+          <div class="container my-4">
+            {{$message->links()}}
+        </div>
     </div>
 @endsection

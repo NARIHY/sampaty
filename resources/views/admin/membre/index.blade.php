@@ -2,6 +2,11 @@
 
 @section('title', 'Voici tous nos membres')
 
+@php 
+use App\Models\Andraikitra;
+use App\Models\Sampana;
+@endphp
+
 @section('content')
     <section class="section dashboard">
         <div class="pagetitle">
@@ -36,11 +41,15 @@
                             <td>{{ $membres->nom}}</td>
                             <td>{{ $membres->prenon}}</td>
                             <td>{{ $membres->surnon}}</td>
-                            <td>{{ $membres->andraikitra}}</td>
+                            @php
+                                $a = Andraikitra::findOrFail($membres->andraikitra);
+                                $sp = Sampana::findOrFail($membres->sampana);
+                            @endphp
+                            <td>{{ $a->name}}</td>
                             <td>{{ $membres->addresse}}</td>
-                            <td>{{ $membres->Sampana}}</td>
+                            <td>{{ $sp->name}}</td>
                             <td>
-                                <a href="#" class="btn btn-primary">Modifier</a>
+                                <a href="{{ route('Admin.message.modify', ['id'=> $membres->id, 'nom' => $membres->nom]) }}" class="btn btn-primary">Modifier</a>
                             </td>
                             
                             

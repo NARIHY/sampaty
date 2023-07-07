@@ -63,4 +63,7 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     Route::get('/Membre', [AdminControlleur::class, 'membre'])->name('membre');
     Route::get('/Membre/Ajouter-un-membre', [MembreControlleur::class, 'index'])->name('ajouterMembre');
     Route::post('/Membre/Ajouter-un-membre', [MembreControlleur::class, 'create'])->name('validation');
+    Route::get('/Message-recu', [AdminControlleur::class, 'message'])->name('message');
+    Route::get('/{id}/{nom}/edit', [MembreControlleur::class, 'modify'])->name('message.modify');
+    Route::put('/{id}/{nom}/edit', [MembreControlleur::class, 'update'])->name('message.update');
 });

@@ -171,13 +171,13 @@ $text = new App\Models\Text();
                         <div id="carouselExampleSlidesOnly" class="carousel slide pointer-event" data-bs-ride="carousel">
                             <div class="carousel-inner">
                               <div class="carousel-item active">
-                                <img src="/storage/scout/scout.jpg" class="d-block w-100" alt="...">
+                                <img src="/storage/{{$actu->picture}}" class="d-block w-100" alt="...">
                               </div>
                               <div class="carousel-item">
-                                <img src="/storage/blog/img/loup.jpg" class="d-block w-100" alt="...">
+                                <img src="/storage/{{$actu->picture_2}}" class="d-block w-100" alt="...">
                               </div>
                               <div class="carousel-item">
-                                <img src="/storage/scout/donovan.jpg" class="d-block w-100" alt="...">
+                                <img src="/storage/{{$actu->picture_3}}" class="d-block w-100" alt="...">
                               </div>
                             </div>
                           </div>

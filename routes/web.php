@@ -73,5 +73,9 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     //route actualiter
     Route::get('/Actualite', [ActualityControllers::class, 'admin'])->name('actualite');
     Route::get('/Actualite/ajouter-une-nouvelle-actualite', [ActualityControllers::class, 'create'])->name('actualite.create');
+    Route::get('/Actualite/{id}/modifier', [ActualityControllers::class, 'modify'])->name('actualite.modify');
+    Route::put('/Actualite/{id}/modifier', [ActualityControllers::class, 'update'])->name('actualite.modify.update');
     Route::post('/Actualite/ajouter-une-nouvelle-actualite', [ActualityControllers::class, 'store'])->name('actualite.create.store');
+    
+    Route::delete('/Actualite/{id}/delete', [ActualityControllers::class, 'delete'])->name('actualite.delete');
 });

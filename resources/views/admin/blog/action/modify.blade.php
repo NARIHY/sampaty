@@ -36,7 +36,7 @@
                         @error('image') {{$message}} @enderror
                     </div>
 
-                    <label for="picture_2" style="float: left; margin-top:30%">Ajouter une deuxième image</label>
+                    <label for="picture_2" style="float: left; margin-top:30%">Modifier la deuxième image</label>
                     <input type="file" name="picture_2" id="picture_2" class="form-control @error('picture_2') is-invalid @enderror" value="{{$blog->picture_2}}">
                     <div style="color:red">
                         @error('picture_2') {{$message}} @enderror

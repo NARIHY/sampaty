@@ -1,58 +1,54 @@
 @extends('admin')
 
-@section('title', 'Nos Blogs')
+@section('title', 'Sampana Maitso')
 
 @section('content')
 <section class="section dashboard">
     <div class="pagetitle">
-        <h1>Nos blogs</h1>
+        <h1>Sampana Maitso</h1>
         <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('Admin.home')}}">Acceuil</a></li>
-            <li class="breadcrumb-item active">Nos blogs</li>  
+            <li class="breadcrumb-item"><a href="{{ route('Admin.sampana')}}">Sampana</a></li>
+            <li class="breadcrumb-item active">Sampana Maitso</li>  
         </ol>
         </nav>
     </div>
     <div class="container">
-
-        @if (session('success')) 
-            <div class="alert alert-success">
-                <h3 class="text-center">{{session('success')}}</h3>
-            </div>
-        @endif
-        <table class="table table-striped">
+        <table class="table table-borderless datatable">
             <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">titre</th>
-                <th scope="col">slogan</th>
+                <th scope="col">Info</th>
                 <th scope="col">publié par</th>
                 <th scope="col">publié le</th>
-                <th scope="col">Action</th>
+                <th scope="col" style="float:right">Action</th>
             </tr>
             </thead>
          
                 
           
                 
-            @forelse($blog as $blogs)
+           
             <tbody>
+            @forelse($maitso as $maitsos)
             <tr>
-                <th scope="row">{{$blogs->id}}</th>
-                <td>{{$blogs->title}}</td>
-                <td>{{$blogs->slug}}</td>
-                <td>{{$blogs->posted_by}}</td>
-                <td> {{$blogs->created_at->format('d M Y')}} </td>
+                <th scope="row">{{$maitsos->id}}</th>
+                <td>{{$maitsos->title}}</td>
+                <td>{{$maitsos->info}}</td>
+                <td>{{$maitsos->posted_by}}</td>
+                <td> {{$maitsos->created_at->format('d M Y')}} </td>
                 <td>
                     <div class="row mb-3 text-center">
                         <div class="col-6 themed-grid-col"> 
-                            <a href="{{ route('Admin.blog.modify', ['id'=> $blogs->id]) }}" class="btn btn-primary" >Modifier</a>
+                            <a href="{{ route('Admin.sampana.maitso.modify', ['id' => $maitsos->id])}}" class="btn btn-primary" style="float:right">Editer</a>
                         </div>
                         <div class="col-6 themed-grid-col">
-                            <form action="{{ route('Admin.blog.delete', ['id'=> $blogs->id])}}" method="post">
+                            <form action="" method="post">
                                 @csrf 
                                 @method("DELETE")
-                                <input type="submit" value="Suprimer" class="btn btn-danger">
+                                <input type="submit" value="Suprimer" class="btn btn-danger" style="float:right">
                             </form>
                         </div>
                         
@@ -68,19 +64,20 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td><h2 class="text-center" style="color: red"> Aucun Blog pour le moment</h2></td>
+                <td><h2 class="text-center" style="color: red"> Aucune publication pour le moment</h2></td>
                 <td></td>
                 <td></td>
             </tr>
            
            
             
-            </tbody>
+            
             
             @endforelse
+        </tbody>
         </table>
         <div class="container">
-            {{$blog->links()}}
+            {{$maitso->links()}}
         </div>
     </div>
 </section>

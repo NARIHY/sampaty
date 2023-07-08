@@ -235,7 +235,7 @@
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="{{route('Admin.sampana')}}">
               <i class="bi bi-circle"></i><span>Liste</span>
             </a>
           </li>

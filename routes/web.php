@@ -9,8 +9,10 @@ use App\Http\Controllers\BlogControllers;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContacteController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MaitsoControlleur;
 use App\Http\Controllers\MembreControlleur;
 use App\Http\Controllers\ProposControlleur;
+use App\Http\Controllers\SampanaAdminControlleur;
 use App\Http\Controllers\SampanaContollers;
 
 
@@ -122,4 +124,11 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     
     Route::delete('/information/{id}/suprimer', [ProposControlleur::class, 'delete'])->name('information.delete');
 
+    //Sampana
+    Route::get('/sampana', [SampanaAdminControlleur::class, 'index'])->name('sampana');
+    Route::get('/sampana/{id}',[SampanaAdminControlleur::class, 'view'])->name('sampana.view');
+    //maitso
+    Route::get('/sampana/sampana-maitso/{id}/edit', [MaitsoControlleur::class, 'modify'])->name('sampana.maitso.modify');
+    Route::put('/sampana/sampana-maitso/{id}/edit', [MaitsoControlleur::class, 'update'])->name('sampana.maitso.update');
+    
 });

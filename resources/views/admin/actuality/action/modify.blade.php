@@ -34,19 +34,19 @@
             <div class="row mb-3 text-center">
                 <div class="col-8 themed-grid-col">
                     <label for="picture" style="float:left">Modifier l' image</label>
-                    <input type="file" name="picture" id="picture" class="form-control @error('title') is-invalid @enderror" value="{{$actuality->picture}}">
+                    <input type="file" name="picture" id="picture" class="form-control @error('picture') is-invalid @enderror" value="{{$actuality->picture}}">
                     <div style="color:red">
                         @error('picture') {{$message}} @enderror
                     </div>
 
                     <label for="picture_2" style="float:left; margin-top:30%">Ajouter une deuxième image</label>
-                    <input type="file" name="picture_2" id="picture_2" class="form-control @error('title') is-invalid @enderror" value="{{$actuality->picture_2}}">
+                    <input type="file" name="picture_2" id="picture_2" class="form-control @error('picture_2') is-invalid @enderror" value="{{$actuality->picture_2}}">
                     <div style="color:red">
                         @error('picture_2') {{$message}} @enderror
                     </div>
 
                     <label for="picture_3" style="float:left; margin-top:30%">Ajouter une troisième image</label>
-                    <input type="file" name="picture_3" id="picture_3" class="form-control @error('title') is-invalid @enderror" value="{{$actuality->picture_3}}">
+                    <input type="file" name="picture_3" id="picture_3" class="form-control @error('picture_3') is-invalid @enderror" value="{{$actuality->picture_3}}">
                     <div style="color:red">
                         @error('picture_3') {{$message}} @enderror
                     </div>

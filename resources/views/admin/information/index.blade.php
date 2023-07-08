@@ -1,15 +1,15 @@
 @extends('admin')
 
-@section('title', 'Nos Blogs')
+@section('title', 'tous nos information')
 
 @section('content')
 <section class="section dashboard">
     <div class="pagetitle">
-        <h1>Nos blogs</h1>
+        <h1>Nos informations</h1>
         <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('Admin.home')}}">Acceuil</a></li>
-            <li class="breadcrumb-item active">Nos blogs</li>  
+            <li class="breadcrumb-item active">Nos  informations</li>  
         </ol>
         </nav>
     </div>
@@ -25,7 +25,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">titre</th>
-                <th scope="col">slogan</th>
+                
                 <th scope="col">publié par</th>
                 <th scope="col">publié le</th>
                 <th scope="col">Action</th>
@@ -35,21 +35,21 @@
                 
           
                 
-            @forelse($blog as $blogs)
+            @forelse($propos as $information)
             <tbody>
             <tr>
-                <th scope="row">{{$blogs->id}}</th>
-                <td>{{$blogs->title}}</td>
-                <td>{{$blogs->description}}</td>
-                <td>{{$blogs->posted_by}}</td>
-                <td> {{$blogs->created_at->format('d M Y')}} </td>
+                <th scope="row">{{$information->id}}</th>
+                <td>{{$information->title}}</td>
+                
+                <td>{{$information->posted_by}}</td>
+                <td> {{$information->created_at->format('d M Y')}} </td>
                 <td>
                     <div class="row mb-3 text-center">
                         <div class="col-6 themed-grid-col"> 
-                            <a href="{{ route('Admin.blog.modify', ['id'=> $blogs->id]) }}" class="btn btn-primary" >Modifier</a>
+                            <a href="{{ route('Admin.information.modify', ['id'=> $information->id]) }}" class="btn btn-primary" >Editer</a>
                         </div>
                         <div class="col-6 themed-grid-col">
-                            <form action="{{ route('Admin.blog.delete', ['id'=> $blogs->id])}}" method="post">
+                            <form action="{{ route('Admin.information.delete', ['id'=> $information->id])}}" method="post">
                                 @csrf 
                                 @method("DELETE")
                                 <input type="submit" value="Suprimer" class="btn btn-danger">
@@ -68,7 +68,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td><h2 class="text-center" style="color: red"> Aucun Blog pour le moment</h2></td>
+                <td><h2 class="text-center" style="color: red"> Aucune information pour le moment</h2></td>
                 <td></td>
                 <td></td>
             </tr>
@@ -80,7 +80,7 @@
             @endforelse
         </table>
         <div class="container">
-            {{$blog->links()}}
+            {{$propos->links()}}
         </div>
     </div>
 </section>

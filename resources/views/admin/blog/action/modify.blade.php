@@ -37,7 +37,7 @@
                     </div>
 
                     <label for="picture_2" style="float: left; margin-top:30%">Ajouter une deuxième image</label>
-                    <input type="file" name="picture_2" id="picture_2" class="form-control @error('title') is-invalid @enderror" value="{{$blog->picture_2}}">
+                    <input type="file" name="picture_2" id="picture_2" class="form-control @error('picture_2') is-invalid @enderror" value="{{$blog->picture_2}}">
                     <div style="color:red">
                         @error('picture_2') {{$message}} @enderror
                     </div>
@@ -66,7 +66,7 @@
                 @endforeach
             </select>
 
-            <label for="content"></label>
+            <label for="content">Contenu</label>
             <textarea name="content" id="content" cols="30" rows="10" class="form-control @error('content') is-invalid @enderror">{{$blog->content}}</textarea>
             <div style="color:red">
                 @error('content') {{$message}} @enderror

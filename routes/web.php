@@ -10,6 +10,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContacteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MembreControlleur;
+use App\Http\Controllers\ProposControlleur;
 use App\Http\Controllers\SampanaContollers;
 
 
@@ -24,9 +25,6 @@ use App\Http\Controllers\SampanaContollers;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -42,24 +40,11 @@ require __DIR__.'/auth.php';
 
 /**
  * 
- * 
+ * mes route
  * 
  * 
  */
 
-
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('scout.index');
@@ -127,5 +112,14 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     Route::put('/Blog/{id}/modifier', [BlogAdminControlleur::class, 'update'])->name('blog.modify.update');
 
     Route::delete('/Blog/{id}/delete', [BlogAdminControlleur::class, 'delete'])->name('blog.delete');
+
+    //informations
+    Route::get('/information', [ProposControlleur::class, 'index'])->name('information');
+    Route::get('/information/ajout-d-une-nouvelle-information', [ProposControlleur::class, 'create'])->name('information.create');
+    Route::post('/information/ajout-d-une-nouvelle-information', [ProposControlleur::class, 'store'])->name('information.store');
+    Route::get('/information/{id}/editer', [ProposControlleur::class, 'modify'])->name('information.modify');
+    Route::put('/information/{id}/editer', [ProposControlleur::class, 'update'])->name('information.modify.update');
+    
+    Route::delete('/information/{id}/suprimer', [ProposControlleur::class, 'delete'])->name('information.delete');
 
 });

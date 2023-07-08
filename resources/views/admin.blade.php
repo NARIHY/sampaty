@@ -243,17 +243,17 @@
       </li><!-- End Charts Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link @if($routes === 'Admin.information')) @else collapsed @endif" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
             <i class="bi bi-patch-question-fill"></i><span>Informations</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="">
+            <a href="{{route('Admin.information.create')}}">
               <i class="bi bi-circle"></i><span>Nouvelle information</span>
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="{{route('Admin.information')}}">
               <i class="bi bi-circle"></i><span>Liste</span>
             </a>
           </li>

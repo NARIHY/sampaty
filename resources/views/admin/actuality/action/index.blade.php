@@ -30,19 +30,19 @@
             </div>
             
             <label for="picture">Ajouter un image</label>
-            <input type="file" name="picture" id="picture" class="form-control @error('title') is-invalid @enderror">
+            <input type="file" name="picture" id="picture" class="form-control @error('picture') is-invalid @enderror">
             <div class="is-invalid">
                 @error('picture') {{$message}} @enderror
             </div>
 
             <label for="picture_2">Ajouter une deuxièème image</label>
-            <input type="file" name="picture_2" id="picture_2" class="form-control @error('title') is-invalid @enderror">
+            <input type="file" name="picture_2" id="picture_2" class="form-control @error('picture_2') is-invalid @enderror">
             <div class="is-invalid">
                 @error('picture_2') {{$message}} @enderror
             </div>
 
             <label for="picture_3">Ajouter un image</label>
-            <input type="file" name="picture_3" id="picture_3" class="form-control @error('title') is-invalid @enderror">
+            <input type="file" name="picture_3" id="picture_3" class="form-control @error('picture_3') is-invalid @enderror">
             <div class="is-invalid">
                 @error('picture_3') {{$message}} @enderror
             </div>

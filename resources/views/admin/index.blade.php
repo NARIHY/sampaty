@@ -76,7 +76,10 @@ $text = new App\Models\Text();
                           <i class="bi bi-people"></i>
                         </div>
                         <div class="ps-3">
-                          <h6>1244</h6>
+                          @php 
+                            $totalMember = App\Models\Membre::count();
+                          @endphp
+                          <h6>{{ $totalMember}}</h6>
                         </div>
                       </div>
     
@@ -200,7 +203,16 @@ $text = new App\Models\Text();
                 <div class="card-body pb-0">
                   <h5 class="card-title">Nos blog</h5>
                     @foreach($blog as $blogs)
-                        <img src="/storage/scout/scout.jpg" alt="Message de l'administrateur" width="100%">
+                    <div id="carouselExampleSlidesOnly" class="carousel slide pointer-event" data-bs-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img src="/storage/{{$blogs->image}}" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="/storage/{{$blogs->picture_2}}" class="d-block w-100" alt="...">
+                        </div>
+                      </div>
+                    </div>
                         <h2>{{$blogs->title}}</h2>
                         <p style="text-align: justify">
                            {{$text->excerpt($blogs->content)}}

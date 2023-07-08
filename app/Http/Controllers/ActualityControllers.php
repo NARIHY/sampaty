@@ -56,13 +56,13 @@ class ActualityControllers extends Controller
         //image 2
         $picture_2 = $request->validated('picture_2');
         if ($picture_2 !== null && !$picture_2->getError()) {
-            $data['picture_2'] = $picture->store('actuality', 'public');
+            $data['picture_2'] = $picture_2->store('actuality', 'public');
         }
         $actuality->update($data);
         //image 2
         $picture_3 = $request->validated('picture_3');
-        if ($picture_3 !== null && !$picture_2->getError()) {
-            $data['picture_3'] = $picture->store('actuality', 'public');
+        if ($picture_3 !== null && !$picture_3->getError()) {
+            $data['picture_3'] = $picture_3->store('actuality', 'public');
         }
         $actuality->update($data);
 
@@ -83,8 +83,11 @@ class ActualityControllers extends Controller
     {
         $actuality = Actuality::findOrFail($id);
         //recuperation de picture si vide ou  pas
+        $actuality->sampana()->sync(['actuality_id' => $actuality->id], $request->validated('sampana'));
+        
         $actuality->update($request->validated());
         /** redirection des image dans les dossier */
+
         $picture = $request->validated('picture');
         if (empty($picture)){
             $picture = $actuality->picture;

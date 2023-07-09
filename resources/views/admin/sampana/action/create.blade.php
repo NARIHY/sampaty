@@ -3,6 +3,7 @@
 @section('title', 'Sampana Maitso')
 
 @section('content')
+
 <section class="section dashboard">
     <div class="pagetitle">
         <h1>Sampana Maitso</h1>
@@ -11,7 +12,7 @@
             <li class="breadcrumb-item"><a href="{{ route('Admin.home')}}">Acceuil</a></li>
             <li class="breadcrumb-item"><a href="{{ route('Admin.sampana')}}">Sampana</a></li>
             <li class="breadcrumb-item">Sampana maitso</li>
-            <li class="breadcrumb-item active">Edition de {{$maitso->title}}</li>  
+            <li class="breadcrumb-item active">Ajout d'une publication</li>  
         </ol>
         </nav>
     </div>
@@ -30,45 +31,44 @@
 
         <form action="" method="post" enctype="multipart/form-data">
             @csrf 
-            @method('PUT')
             <label for="title">Titre</label>
-            <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" value="{{$maitso->title}}">
+            <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" >
             <div style="color:red">
                 @error('title') {{$message}} @enderror
             </div>
-        <div class="row mb-3 text-center" style="margin-top: 20px">
-            <div class="col-8 themed-grid-col">
-                <label for="image" style="float: left">Modifier l' image</label>
-                <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror"  value="{{$maitso->image}}">
+        
+                <label for="image" >ajouter un image</label>
+                <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror"  >
                 <div style="color:red">
                     @error('image') {{$message}} @enderror
                 </div>
 
-                <label for="image_2" style="float: left; margin-top:30%">Modifier la deuxième image</label>
-                <input type="file" name="image_2" id="picture_2" class="form-control @error('image_2') is-invalid @enderror" value="{{$maitso->image_2}}" >
+                <label for="image_2" >ajouter une deuxième image</label>
+                <input type="file" name="image_2" id="picture_2" class="form-control @error('image_2') is-invalid @enderror"  >
                 <div style="color:red">
                     @error('image_2') {{$message}} @enderror
                 </div>
 
-                <label for="image_3" style="float: left; margin-top:30%">Modifier la troisième image</label>
-                <input type="file" name="image_3" id="image_3" class="form-control @error('image_3') is-invalid @enderror"  value="{{$maitso->image_3}}">
+                <label for="image_3" >ajouter une troisième image</label>
+                <input type="file" name="image_2" id="image_3" class="form-control @error('image_3') is-invalid @enderror"  >
                 <div style="color:red">
-                    @error('image_3') {{$message}} @enderror
-                </div>
-            </div>
-            <div class="col-4 themed-grid-col">
-                <img src="/storage/{{$maitso->image}}" alt="" width="100%">
-                <img src="/storage/{{$maitso->image_2}}" alt="" width="100%" style="margin-top:10px">
-                <img src="/storage/{{$maitso->image_3}}" alt="" width="100%" style="margin-top:10px">
-            </div>
-                
+                    @error('image_3') {{$message}} @enderror               
         </div>
 
-        <label for="info"></label>
+        <label for="info">Choisir entre:</label>
         <select name="info" id="info" class="form-control">
             <option value="">Selectionner un élément</option>
             <option value="Tily"  @if($maitso->info == "Tily") selected @endif>Tily</option>
             <option value="Mpanazava" @if($maitso->info == "Mpanazava") selected @endif>Mpanazava</option>
+        </select>
+
+        <label for="sampana">Sampana:</label>
+        <select name="sampana" id="sampana" class="form-control">
+            <option value="">Selectionner un élément</option>
+            <option value="Mavo"  >Mavo</option>
+            <option value="Maitso" >Maitso</option>
+            <option value="Mena">Mena</option>
+            <option value="Menafify">Menafify</option>
         </select>
 
         <label for="content">Contenu</label>
@@ -85,4 +85,6 @@
         </form>
     </div>
 </section>
+
+
 @endsection

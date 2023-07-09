@@ -10,7 +10,10 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContacteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MaitsoControlleur;
+use App\Http\Controllers\MavoControlleur;
 use App\Http\Controllers\MembreControlleur;
+use App\Http\Controllers\MenaControlleur;
+use App\Http\Controllers\MenafifyControlleur;
 use App\Http\Controllers\ProposControlleur;
 use App\Http\Controllers\SampanaAdminControlleur;
 use App\Http\Controllers\SampanaContollers;
@@ -130,5 +133,19 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     //maitso
     Route::get('/sampana/sampana-maitso/{id}/edit', [MaitsoControlleur::class, 'modify'])->name('sampana.maitso.modify');
     Route::put('/sampana/sampana-maitso/{id}/edit', [MaitsoControlleur::class, 'update'])->name('sampana.maitso.update');
+
+    //mavo
+    Route::get('/sampana/sampana-mavo/{id}/edit', [MavoControlleur::class, 'modify'])->name('sampana.mavo.modify');
+    Route::put('/sampana/sampana-mavo/{id}/edit', [MavoControlleur::class, 'update'])->name('sampana.mavo.update');
     
+    //mena
+    Route::get('/sampana/sampana-mena/{id}/edit', [MenaControlleur::class, 'modify'])->name('sampana.mena.modify');
+    Route::put('/sampana/sampana-mena/{id}/edit', [MenaControlleur::class, 'update'])->name('sampana.mena.update');
+
+    //menafify
+    Route::get('/sampana/sampana-menafify/{id}/edit', [MenafifyControlleur::class, 'modify'])->name('sampana.menafify.modify');
+    Route::put('/sampana/sampana-menafify/{id}/edit', [MenafifyControlleur::class, 'update'])->name('sampana.menafify.update');
+    //creation
+    Route::get('/sampana/sampana-create', [MaitsoControlleur::class, 'create'])->name('sampana.create');
+
 });

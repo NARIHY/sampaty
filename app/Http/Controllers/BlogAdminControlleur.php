@@ -93,4 +93,9 @@ class BlogAdminControlleur extends Controller
         $blog->delete();
         return redirect()->route('Admin.blog')->with('success', 'Suppréssion réussi');
     }
+
+    public function sampana()
+    {
+        return view('admin.sampana.action.create');
+    }
 }

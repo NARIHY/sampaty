@@ -13,7 +13,7 @@
             
                     <div class="row">
                         <div class="col-lg-6 order-1 order-lg-2 aos-init aos-animate" data-aos="fade-left" data-aos-delay="100">
-                            <h3>{{$maitsos->title}}</h3>
+                            <h3>{{$menafifies->title}}</h3>
                             <p style="font-family: Verdana, Geneva, Tahoma, sans-serif; text-align:justify">
                             {{$text->excerpt($menafifies->content)}}
                             </p>

@@ -224,13 +224,14 @@
           
         </ul>
       </li><!-- End Forms Nav -->
+      
       <li class="nav-item">
         <a class="nav-link @if($routes === 'Admin.sampana')) @else collapsed @endif" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
             <i class="bi bi-people-fill"></i><span>Sampana</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{{route('Admin.sampana.create')}}">
+            <a href="{{route('Admin.blog.create.create')}}">
               <i class="bi bi-circle"></i><span>Publié</span>
             </a>
           </li>

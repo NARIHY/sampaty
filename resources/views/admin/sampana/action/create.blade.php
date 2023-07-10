@@ -44,13 +44,13 @@
                 </div>
 
                 <label for="image_2" >ajouter une deuxième image</label>
-                <input type="file" name="image_2" id="picture_2" class="form-control @error('image_2') is-invalid @enderror"  >
+                <input type="file" name="image_2" id="image_2" class="form-control @error('image_2') is-invalid @enderror"  >
                 <div style="color:red">
                     @error('image_2') {{$message}} @enderror
                 </div>
 
                 <label for="image_3" >ajouter une troisième image</label>
-                <input type="file" name="image_2" id="image_3" class="form-control @error('image_3') is-invalid @enderror"  >
+                <input type="file" name="image_3" id="image_3" class="form-control @error('image_3') is-invalid @enderror"  >
                 <div style="color:red">
                     @error('image_3') {{$message}} @enderror               
         </div>
@@ -58,22 +58,22 @@
         <label for="info">Choisir entre:</label>
         <select name="info" id="info" class="form-control">
             <option value="">Selectionner un élément</option>
-            <option value="Tily"  @if($maitso->info == "Tily") selected @endif>Tily</option>
-            <option value="Mpanazava" @if($maitso->info == "Mpanazava") selected @endif>Mpanazava</option>
+            <option value="Tily"  >Tily</option>
+            <option value="Mpanazava" >Mpanazava</option>
         </select>
 
         <label for="sampana">Sampana:</label>
         <select name="sampana" id="sampana" class="form-control">
             <option value="">Selectionner un élément</option>
-            <option value="Mavo"  >Mavo</option>
-            <option value="Maitso" >Maitso</option>
+            <option value="Mavo">Mavo</option>
+            <option value="Maitso">Maitso</option>
             <option value="Mena">Mena</option>
             <option value="Menafify">Menafify</option>
         </select>
 
         <label for="content">Contenu</label>
         <textarea name="content" id="content" class="form-control" cols="30" rows="10">
-            {{$maitso->content}}
+            
         </textarea>
         <div style="color:red">
             @error('content') {{$message}} @enderror

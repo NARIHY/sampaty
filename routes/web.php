@@ -145,7 +145,8 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     //menafify
     Route::get('/sampana/sampana-menafify/{id}/edit', [MenafifyControlleur::class, 'modify'])->name('sampana.menafify.modify');
     Route::put('/sampana/sampana-menafify/{id}/edit', [MenafifyControlleur::class, 'update'])->name('sampana.menafify.update');
+    
     //creation
-    Route::get('/sampana/sampana-create', [MaitsoControlleur::class, 'create'])->name('sampana.create');
-
+    Route::get('/Blog/creation-d-une-publication', [BlogAdminControlleur::class, 'sampana'])->name('blog.create.create');
+    Route::post('/Blog/creation-d-une-publication', [MaitsoControlleur::class, 'store'])->name('maitso.store');
 });

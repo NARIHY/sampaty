@@ -23,7 +23,7 @@
                 <th scope="col">Info</th>
                 <th scope="col">publié par</th>
                 <th scope="col">publié le</th>
-                <th scope="col" style="float:right">Action</th>
+                <th scope="col" >Action</th>
             </tr>
             </thead>
          
@@ -33,6 +33,7 @@
            
             <tbody>
             @forelse($maitso as $maitsos)
+            
             <tr>
                 <th scope="row">{{$maitsos->id}}</th>
                 <td>{{$maitsos->title}}</td>
@@ -42,7 +43,7 @@
                 <td>
                     <div class="row mb-3 text-center">
                         <div class="col-6 themed-grid-col"> 
-                            <a href="{{ route('Admin.sampana.maitso.modify', ['id' => $maitsos->id])}}" class="btn btn-primary" style="float:right">Editer</a>
+                            <a href="{{ route('Admin.sampana.maitso.modify', ['id' => $maitsos->id])}}" class="btn btn-primary" style="float:left">Editer</a>
                         </div>
                         <div class="col-6 themed-grid-col">
                             <form action="" method="post">
@@ -53,6 +54,9 @@
                         </div>
                         
                     </div>
+
+
+                    
                     
                      
 
@@ -72,7 +76,7 @@
            
             
             
-            
+        
             @endforelse
         </tbody>
         </table>

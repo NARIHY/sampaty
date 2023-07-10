@@ -56,4 +56,8 @@ class SampanaAdminControlleur extends Controller
      
     }
     
+    public function add()
+    {
+        return view('admin.sampana.action.create');
+    }
 }

@@ -4,6 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActualityControllers;
 use App\Http\Controllers\AdminControlleur;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\NewPasswordController;
+use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\BlogAdminControlleur;
 use App\Http\Controllers\BlogControllers;
@@ -11,6 +14,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContacteController;
 use App\Http\Controllers\DeleteControllers;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginControlleur;
 use App\Http\Controllers\MaitsoControlleur;
 use App\Http\Controllers\MavoControlleur;
 use App\Http\Controllers\MembreControlleur;
@@ -36,15 +40,7 @@ use App\Http\Controllers\SampanaContollers;
 
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
 require __DIR__.'/auth.php';
 
@@ -91,7 +87,7 @@ Route::prefix('/sampana')->name('Sampana.')->group( function() {
 
 //administration
 
-Route::prefix('/administration')->name('Admin.')->group( function () {
+Route::prefix('/administration')->middleware(['auth', 'verified'])->name('Admin.')->group( function () {
     Route::get('/', [AdminControlleur::class, 'index'])->name('home');
 
     //route ny membre
@@ -160,4 +156,26 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     Route::delete('/gestion-de-compte/{id}/delete', [RegisterControllers::class, 'delete'])->name('auth.delete');
     Route::get('/gestion-de-compte/creation', [RegisterControllers::class, 'create'])->name('auth.create');
     Route::post('/gestion-de-compte/creation', [RegisterControllers::class, 'store'])->name('auth.store');
+
+    //login out
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+});
+
+//route authentification
+
+
+Route::middleware(['guest'])->group(function () {
+    //login
+    Route::get('/scout-XeB/connexion',[AuthenticatedSessionController::class, 'create'])->name('login');
+    Route::post('/scout-XeB/connexion',[AuthenticatedSessionController::class, 'store']);
+    
+    //password forgotten
+    Route::get('/scout-XeB/mots-de-passe-oublie', [PasswordResetLinkController::class, 'create'])->name('password.request');
+    Route::post('/scout-XeB/mots-de-passe-oublie', [PasswordResetLinkController::class, 'store'])->name('password.email');
+
+    //formulaire renitialisation mots de passe
+    Route::get('/scout-XeB/{token}', [NewPasswordController::class, 'create'])->name('password.reset');
+    
+    //gerer la soumission
+    Route::get('/scout-XeB', [NewPasswordController::class, 'store'])->name('password.update');
 });

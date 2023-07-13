@@ -4,10 +4,12 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ActualityControllers;
 use App\Http\Controllers\AdminControlleur;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\BlogAdminControlleur;
 use App\Http\Controllers\BlogControllers;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContacteController;
+use App\Http\Controllers\DeleteControllers;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MaitsoControlleur;
 use App\Http\Controllers\MavoControlleur;
@@ -15,6 +17,7 @@ use App\Http\Controllers\MembreControlleur;
 use App\Http\Controllers\MenaControlleur;
 use App\Http\Controllers\MenafifyControlleur;
 use App\Http\Controllers\ProposControlleur;
+use App\Http\Controllers\RegisterControllers;
 use App\Http\Controllers\SampanaAdminControlleur;
 use App\Http\Controllers\SampanaContollers;
 
@@ -29,6 +32,8 @@ use App\Http\Controllers\SampanaContollers;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//authentificate
+
 
 
 Route::get('/dashboard', function () {
@@ -133,20 +138,25 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
     //maitso
     Route::get('/sampana/sampana-maitso/{id}/edit', [MaitsoControlleur::class, 'modify'])->name('sampana.maitso.modify');
     Route::put('/sampana/sampana-maitso/{id}/edit', [MaitsoControlleur::class, 'update'])->name('sampana.maitso.update');
-
+    Route::delete('/sampana/2/{id}',[DeleteControllers::class, 'maitso'])->name('sampana.view.delete.maitso');
     //mavo
     Route::get('/sampana/sampana-mavo/{id}/edit', [MavoControlleur::class, 'modify'])->name('sampana.mavo.modify');
     Route::put('/sampana/sampana-mavo/{id}/edit', [MavoControlleur::class, 'update'])->name('sampana.mavo.update');
-    
+    Route::delete('/sampana/1/{id}',[DeleteControllers::class, 'mavo'])->name('sampana.view.delete.mavo');
     //mena
     Route::get('/sampana/sampana-mena/{id}/edit', [MenaControlleur::class, 'modify'])->name('sampana.mena.modify');
     Route::put('/sampana/sampana-mena/{id}/edit', [MenaControlleur::class, 'update'])->name('sampana.mena.update');
-
+    Route::delete('/sampana/3/{id}',[DeleteControllers::class, 'mena'])->name('sampana.view.delete.mena');
     //menafify
     Route::get('/sampana/sampana-menafify/{id}/edit', [MenafifyControlleur::class, 'modify'])->name('sampana.menafify.modify');
     Route::put('/sampana/sampana-menafify/{id}/edit', [MenafifyControlleur::class, 'update'])->name('sampana.menafify.update');
-    
+    Route::delete('/sampana/4/{id}',[DeleteControllers::class, 'menafify'])->name('sampana.view.delete.menafify');
     //creation
     Route::get('/Blog/creation-d-une-publication', [BlogAdminControlleur::class, 'sampana'])->name('blog.create.create');
     Route::post('/Blog/creation-d-une-publication', [MaitsoControlleur::class, 'store'])->name('maitso.store');
+
+    //route authentificate
+    Route::get('/gestion-de-compte', [RegisterControllers::class, 'index'])->name('auth.index');
+    Route::get('/gestion-de-compte/creation', [RegisterControllers::class, 'create'])->name('auth.create');
+    Route::post('/gestion-de-compte/creation', [RegisterControllers::class, 'store'])->name('auth.store');
 });

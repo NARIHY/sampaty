@@ -16,6 +16,11 @@
     <div class="container">
         <div class="container">
             <div class="container">
+                @if(session('success'))
+            <div class="alert alert-success">
+                {{session('success')}}
+            </div>
+            @endif
                 <table class="table table-borderless datatable">
                     <thead>
                     <tr>
@@ -46,7 +51,7 @@
                                     <a href="{{ route('Admin.sampana.mena.modify', ['id' => $menas->id])}}" class="btn btn-primary" style="float:left">Editer</a>
                                 </div>
                                 <div class="col-6 themed-grid-col">
-                                    <form action="" method="post">
+                                    <form action="{{route('Admin.sampana.view.delete.mena',['id' => $menas->id])}}" method="post">
                                         @csrf 
                                         @method("DELETE")
                                         <input type="submit" value="Suprimer" class="btn btn-danger" style="float:right">

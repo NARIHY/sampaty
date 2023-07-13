@@ -186,13 +186,13 @@
       @endphp
 
       <li class="nav-item">
-        <a class="nav-link @if($routes === 'Admin.home')) @else collapsed @endif " href="{{route('Admin.home')}}">
+        <a class="nav-link @if($routes === 'Admin.home') @else collapsed @endif " href="{{route('Admin.home')}}">
           <i class="bi bi-grid"></i>
           <span>Tableau de bord</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link @if($routes === 'Admin.actualite')) @else collapsed @endif" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link @if($routes === 'Admin.actualite') @else collapsed @endif" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
             <i class="bi bi-globe"></i><span>Actualité</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -209,7 +209,7 @@
       </li><!-- End Components Nav -->
 
       <li class="nav-item">
-        <a class="nav-link @if($routes === 'Admin.blog')) @else collapsed @endif" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link @if($routes === 'Admin.blog') @else collapsed @endif" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
             <i class="bi bi-book-half"></i><span>Blog</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -226,7 +226,7 @@
       </li><!-- End Forms Nav -->
       
       <li class="nav-item">
-        <a class="nav-link @if($routes === 'Admin.sampana')) @else collapsed @endif" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link @if($routes === 'Admin.sampana') @else collapsed @endif" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
             <i class="bi bi-people-fill"></i><span>Sampana</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -244,7 +244,7 @@
       </li><!-- End Charts Nav -->
 
       <li class="nav-item">
-        <a class="nav-link @if($routes === 'Admin.information')) @else collapsed @endif" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link @if($routes === 'Admin.information') @else collapsed @endif" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
             <i class="bi bi-patch-question-fill"></i><span>Informations</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -263,21 +263,21 @@
       <li class="nav-heading">Autre fonctinalités</li>
 
       <li class="nav-item">
-        <a class="nav-link @if($routes === 'Admin.compte')) @else collapsed @endif" href="">
+        <a class="nav-link @if($routes === 'Admin.compte') @else collapsed @endif" href="{{route('Admin.auth.index')}}">
           <i class="bi bi-person"></i>
           <span>Gestion des comptes</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link @if($routes === 'Admin.membre')) @else collapsed @endif" href="{{route('Admin.membre')}}">
+        <a class="nav-link @if($routes === 'Admin.membre') @else collapsed @endif" href="{{route('Admin.membre')}}">
           <i class="bi bi-person"></i>
           <span>Membre</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link @if($routes === 'Admin.message')) @else collapsed @endif" href="{{route('Admin.message')}}">
+        <a class="nav-link @if($routes === 'Admin.message') @else collapsed @endif" href="{{route('Admin.message')}}">
             <i class="bi bi-chat-text-fill"></i>
           <span>Message reçu</span>
         </a>

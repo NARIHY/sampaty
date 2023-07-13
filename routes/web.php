@@ -157,6 +157,7 @@ Route::prefix('/administration')->name('Admin.')->group( function () {
 
     //route authentificate
     Route::get('/gestion-de-compte', [RegisterControllers::class, 'index'])->name('auth.index');
+    Route::delete('/gestion-de-compte/{id}/delete', [RegisterControllers::class, 'delete'])->name('auth.delete');
     Route::get('/gestion-de-compte/creation', [RegisterControllers::class, 'create'])->name('auth.create');
     Route::post('/gestion-de-compte/creation', [RegisterControllers::class, 'store'])->name('auth.store');
 });

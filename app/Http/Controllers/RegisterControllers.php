@@ -54,4 +54,11 @@ class RegisterControllers extends Controller
 
         return redirect()->route('Admin.auth.index')->with('success', 'création du compte réussi');
     }
+
+    public function delete(string $id)
+    {   
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('Admin.auth.index')->with('success', 'Suppréssion réussi');
+    }
 }

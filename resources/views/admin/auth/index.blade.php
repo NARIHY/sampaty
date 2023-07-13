@@ -16,6 +16,11 @@
     </div>
 
     <div class="container">
+        @if (session('success')) 
+            <div class="alert alert-success">
+                <h3 class="text-center">{{session('success')}}</h3>
+            </div>
+        @endif
         <table class="table table-borderless datatable">
             <thead>
               <tr>
@@ -41,7 +46,7 @@
                                     <a href="" class="btn btn-primary" style="float:left">Editer</a>
                                 </div>
                                 <div class="col-6 themed-grid-col">
-                                    <form action="" method="post">
+                                    <form action="{{route('Admin.auth.delete', ['id' => $user->id])}}" method="post">
                                         @csrf 
                                         @method("DELETE")
                                         <input type="submit" value="Suprimer" class="btn btn-danger" style="float:right">

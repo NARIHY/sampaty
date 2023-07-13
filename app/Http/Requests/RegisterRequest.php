@@ -30,6 +30,7 @@ class RegisterRequest extends FormRequest
             'prenon' => ['required', 'string', 'max:255'],
             'picture' => ['required', 'image', 'max:10000'],
             'genre' => ['required'],
+            'addresse' => ['required'],
             'position' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],

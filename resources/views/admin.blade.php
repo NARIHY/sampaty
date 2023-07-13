@@ -123,7 +123,7 @@ $user = Auth::user();
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="/storage/admin/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <img src="/storage/{{$user->picture}}" alt="Profile" class="rounded-circle" width="36px" height="36px">
             <span class="d-none d-md-block dropdown-toggle ps-2">{{$user->prenon}} {{$user->name}}</span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -139,9 +139,9 @@ $user = Auth::user();
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="{{route('Admin.profil')}}">
                 <i class="bi bi-person"></i>
-                <span>My Profile</span>
+                <span>Mon Profile</span>
               </a>
             </li>
             <li>
@@ -151,7 +151,7 @@ $user = Auth::user();
             <li>
               <a class="dropdown-item d-flex align-items-center" href="#">
                 <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
+                <span>Paramètre du compte</span>
               </a>
             </li>
             <li>
@@ -161,7 +161,7 @@ $user = Auth::user();
             <li>
               <a class="dropdown-item d-flex align-items-center" href="#">
                 <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
+                <span>Besoin d'aide?</span>
               </a>
             </li>
             <li>
@@ -173,7 +173,7 @@ $user = Auth::user();
                 @csrf
                 <div class="dropdown-item d-flex align-items-center">
                   <i class="bi bi-box-arrow-right"></i>
-                <input type="submit" value="Sign Out" style="background: transparent; border:transparent">
+                <input type="submit" value="Déconnexion" style="background: transparent; border:transparent">
                 </div>
                 
               </form>

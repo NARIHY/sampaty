@@ -46,6 +46,14 @@
             </p>
             @enderror
 
+            <label for="addresse">Localisation</label>
+            <input type="text" name="addresse" id="addresse" class="form-control  @error('addresse') is-invalid @enderror" value="{{ @old('prenon')}}">
+            @error('addresse')
+            <p style="color:red">
+                {{ $message}}
+            </p>
+            @enderror
+
             <label for="email">Adresse e-mail</label>
             <input type="email" name="email" id="email" class="form-control  @error('email') is-invalid @enderror" value="{{ @old('email')}}">
             @error('email')

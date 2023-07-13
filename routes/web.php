@@ -20,6 +20,7 @@ use App\Http\Controllers\MavoControlleur;
 use App\Http\Controllers\MembreControlleur;
 use App\Http\Controllers\MenaControlleur;
 use App\Http\Controllers\MenafifyControlleur;
+use App\Http\Controllers\ProfilControlleur;
 use App\Http\Controllers\ProposControlleur;
 use App\Http\Controllers\RegisterControllers;
 use App\Http\Controllers\SampanaAdminControlleur;
@@ -159,6 +160,9 @@ Route::prefix('/administration')->middleware(['auth', 'verified'])->name('Admin.
 
     //login out
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
+    //profil
+    Route::get('/Mon-profil',[ProfilControlleur::class, 'index'])->name('profil');
 });
 
 //route authentification

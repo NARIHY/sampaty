@@ -163,6 +163,8 @@ Route::prefix('/administration')->middleware(['auth', 'verified'])->name('Admin.
 
     //profil
     Route::get('/Mon-profil',[ProfilControlleur::class, 'index'])->name('profil');
+    Route::get('/Mon-profil/{id}/modifier-compte',[ProfilControlleur::class, 'edit'])->name('modify.compte');
+    Route::put('/Mon-profil/{id}/modifier-compte',[ProfilControlleur::class, 'update'])->name('modify.update');
 });
 
 //route authentification

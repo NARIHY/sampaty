@@ -1,6 +1,10 @@
 @extends('admin')
 
 @section('title', 'Menafify')
+@php 
+use Illuminate\Support\Facades\Auth;
+$user = Auth::user();
+@endphp
 
 @section('content')
 <section class="section dashboard">
@@ -49,6 +53,7 @@
                             <div class="col-6 themed-grid-col"> 
                                 <a href="{{ route('Admin.sampana.menafify.modify', ['id' => $menafifies->id])}}" class="btn btn-primary" style="float:left">Editer</a>
                             </div>
+                            @if($user->position === 'Administrateur')
                             <div class="col-6 themed-grid-col">
                                 <form action="{{route('Admin.sampana.view.delete.menafify',['id' => $menafifies->id])}}" method="post">
                                     @csrf 
@@ -56,6 +61,7 @@
                                     <input type="submit" value="Suprimer" class="btn btn-danger" style="float:right">
                                 </form>
                             </div>
+                            @endif
                             
                         </div>
                         

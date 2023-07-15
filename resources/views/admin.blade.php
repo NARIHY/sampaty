@@ -274,13 +274,14 @@ $user = Auth::user();
       </li><!-- End Tables Nav -->
       <li class="nav-heading">Autre fonctinalités</li>
 
+      @if($user->position === 'Administrateur')
       <li class="nav-item">
         <a class="nav-link @if($routes === 'Admin.compte') @else collapsed @endif" href="{{route('Admin.auth.index')}}">
           <i class="bi bi-person"></i>
           <span>Gestion des comptes</span>
         </a>
       </li><!-- End Profile Page Nav -->
-
+      @endif
       <li class="nav-item">
         <a class="nav-link @if($routes === 'Admin.membre') @else collapsed @endif" href="{{route('Admin.membre')}}">
           <i class="bi bi-person"></i>

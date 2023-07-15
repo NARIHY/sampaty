@@ -1,5 +1,8 @@
 @extends('admin')
-
+@php 
+use Illuminate\Support\Facades\Auth;
+$user = Auth::user();
+@endphp
 @section('title', 'Nos Blogs')
 
 @section('content')
@@ -48,6 +51,7 @@
                         <div class="col-6 themed-grid-col"> 
                             <a href="{{ route('Admin.blog.modify', ['id'=> $blogs->id]) }}" class="btn btn-primary" >Modifier</a>
                         </div>
+                        @if($user->position === 'Administrateur')
                         <div class="col-6 themed-grid-col">
                             <form action="{{ route('Admin.blog.delete', ['id'=> $blogs->id])}}" method="post">
                                 @csrf 
@@ -55,7 +59,7 @@
                                 <input type="submit" value="Suprimer" class="btn btn-danger">
                             </form>
                         </div>
-                        
+                        @endif
                     </div>
                     
                      

@@ -1,7 +1,10 @@
 @extends('admin')
 
 @section('title', 'tous nos information')
-
+@php 
+use Illuminate\Support\Facades\Auth;
+$user = Auth::user();
+@endphp
 @section('content')
 <section class="section dashboard">
     <div class="pagetitle">
@@ -48,6 +51,7 @@
                         <div class="col-6 themed-grid-col"> 
                             <a href="{{ route('Admin.information.modify', ['id'=> $information->id]) }}" class="btn btn-primary" >Editer</a>
                         </div>
+                        @if($user->position === 'Administrateur')
                         <div class="col-6 themed-grid-col">
                             <form action="{{ route('Admin.information.delete', ['id'=> $information->id])}}" method="post">
                                 @csrf 
@@ -55,6 +59,7 @@
                                 <input type="submit" value="Suprimer" class="btn btn-danger">
                             </form>
                         </div>
+                        @endif
                         
                     </div>
                     

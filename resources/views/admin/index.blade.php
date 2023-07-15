@@ -16,7 +16,13 @@ $text = new App\Models\Text();
             </ol>
             </nav>
         </div>
-
+        @if(session('error'))
+        <div class="text-center">
+            <div class="alert alert-danger">
+                {{session('error')}}
+            </div>
+        </div>
+        @endif
         <div class="row">
 
             <!-- Left side columns -->

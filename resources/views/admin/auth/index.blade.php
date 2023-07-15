@@ -43,7 +43,7 @@
                         <td>
                             <div class="row mb-3 text-center">
                                 <div class="col-6 themed-grid-col"> 
-                                    <a href="" class="btn btn-primary" style="float:left">Editer</a>
+                                    <a href="{{route('Admin.modify.compte', ['id' => $user->id])}}" class="btn btn-primary" style="float:left">Editer</a>
                                 </div>
                                 <div class="col-6 themed-grid-col">
                                     <form action="{{route('Admin.auth.delete', ['id' => $user->id])}}" method="post">

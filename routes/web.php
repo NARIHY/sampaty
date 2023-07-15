@@ -14,6 +14,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContacteController;
 use App\Http\Controllers\DeleteControllers;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LoginControlleur;
 use App\Http\Controllers\MaitsoControlleur;
 use App\Http\Controllers\MavoControlleur;
@@ -53,9 +54,7 @@ require __DIR__.'/auth.php';
  */
 
 
-Route::get('/', function () {
-    return view('scout.index');
-})->name('home');
+Route::get('/', [IndexController::class, 'index'])->name('home');
 
 Route::post('/', [ContacteController::class, 'contacte'])->name('home.contact');
 

@@ -1,6 +1,7 @@
 @extends('layout')
 @section('title', 'Scout')
 
+
 @section('content')
 
     <section id="hero" class="d-flex justify-content-center align-items-center">

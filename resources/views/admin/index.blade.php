@@ -34,13 +34,15 @@ $text = new App\Models\Text();
                   <div class="card info-card sales-card">    
                     <div class="card-body">
                       <h5 class="card-title">Nombre de visite</span></h5>
-    
+                      @php 
+                      $totalvisites = App\Models\Visite::count();
+                    @endphp
                       <div class="d-flex align-items-center">
                         <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                             <img src="/storage/admin/img/enquete.png" class="fas fa-comments fa-2x text-gray-300" width="50px" height="50px" alt="">
                         </div>
                         <div class="ps-3">
-                          <h6>145</h6>
+                          <h6>{{$totalvisites}}</h6>
                          
     
                         </div>
@@ -57,12 +59,14 @@ $text = new App\Models\Text();
                       <h5 class="card-title">Nombre de compte</h5>
     
                       <div class="d-flex align-items-center">
-                        
+                        @php 
+                            $totalusers = App\Models\User::count();
+                          @endphp
                         <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                             <i class="bi bi-people-fill"></i>
                         </div>
                         <div class="ps-3">
-                          <h6>210</h6>
+                          <h6>{{$totalusers}}</h6>
                         </div>
                       </div>
                     </div>

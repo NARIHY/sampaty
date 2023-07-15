@@ -30,7 +30,10 @@ $user = Auth::user();
                 <th scope="col">#</th>
                 <th scope="col">titre</th>
                 <th scope="col">description</th>
+                @if($user->position === 'Administrateur')
                 <th scope="col">publié par</th>
+                @endif
+                
                 <th scope="col">publié le</th>
                 <th scope="col">Action</th>
             </tr>
@@ -45,7 +48,10 @@ $user = Auth::user();
                 <th scope="row">{{$actu->id}}</th>
                 <td>{{$actu->title}}</td>
                 <td>{{$actu->description}}</td>
+                @if($user->position === 'Administrateur')
                 <td>{{$actu->posted_by}}</td>
+                @endif
+                
                 <td> {{$actu->created_at->format('d M Y')}} </td>
                 <td>
                     <div class="row mb-3 text-center">

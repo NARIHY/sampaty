@@ -30,7 +30,10 @@ $user = Auth::user();
                     <th scope="col">#</th>
                     <th scope="col">titre</th>
                     <th scope="col">Info</th>
-                    <th scope="col">publié par</th>
+                        @if($user->position === 'Administrateur')
+                        <th scope="col">publié par</th>
+                        @endif 
+                   
                     <th scope="col">publié le</th>
                     <th scope="col">Action</th>
                 </tr>
@@ -46,7 +49,10 @@ $user = Auth::user();
                     <th scope="row">{{$menafifies->id}}</th>
                     <td>{{$menafifies->title}}</td>
                     <td>{{$menafifies->info}}</td>
-                    <td>{{$menafifies->posted_by}}</td>
+                        @if($user->position === 'Administrateur')
+                        <td>{{$menafifies->posted_by}}</td>
+                        @endif 
+                    
                     <td> {{$menafifies->created_at->format('d M Y')}} </td>
                     <td>
                         <div class="row mb-3 text-center">

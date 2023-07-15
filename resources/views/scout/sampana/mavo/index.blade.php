@@ -18,6 +18,7 @@
                             <p style="font-family: Verdana, Geneva, Tahoma, sans-serif; text-align:justify">
                             {{$text->excerpt($mavos->content)}}
                             </p>
+                            <a href="{{route('Shows.mavo', ['id' => $mavos->id])}}" class="btn btn-primary">voir +</a>
                         </div>
                         <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
                         <!--Injectena caroussel eto-->

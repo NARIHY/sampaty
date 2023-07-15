@@ -9,7 +9,7 @@
 <div class="container">
   <ol class="breadcrumb p-3 bg-body-tertiary rounded-3">
     <li class="breadcrumb-item">
-      <a class="link-body-emphasis" href="/fianarana/index">
+      <a class="link-body-emphasis" href="{{route('home')}}">
         
         <img class="bi" width="16" height="16" src="/storage/blog/img/maison-web.png" alt="">
         <span class="visually-hidden">Home</span>
@@ -31,11 +31,19 @@
 
             <p style="text-align: justify">{{$text->filtre($blog->content)}}</p>
 
-            @if($blog->image)
-                <div>
-                    <img src="/storage/{{$blog->image}}" alt="{{$blog->title}}">
-                </div>
-            @endif
+            <div class="row mb-3 text-center">
+              <div class="col-6 themed-grid-col">
+                <img src="/storage/{{$blog->image}}" alt="{{$blog->title}}" width="100%">
+
+              </div>
+              <div class="col-6 themed-grid-col">
+                <img src="/storage/{{$blog->picture_2}}" alt="{{$blog->title}}" width="100%">
+              </div>
+             
+            </div>
+             
+              
+            
 
 
     </div>

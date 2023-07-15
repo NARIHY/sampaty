@@ -26,6 +26,7 @@ use App\Http\Controllers\ProposControlleur;
 use App\Http\Controllers\RegisterControllers;
 use App\Http\Controllers\SampanaAdminControlleur;
 use App\Http\Controllers\SampanaContollers;
+use App\Http\Controllers\SampanaShowsController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -84,6 +85,15 @@ Route::prefix('/sampana')->name('Sampana.')->group( function() {
 
     Route::get('/Sampana-menafify', [SampanaContollers::class, 'menafify'])->name('menafify');
 }) ;
+
+//vue par sampana
+Route::prefix('/sampana/shows')->name('Shows.')->group( function() { 
+    Route::get('/sampana-mavo/{id}', [SampanaShowsController::class, 'mavo'])->name('mavo');
+    Route::get('/sampana-maitso/{id}', [SampanaShowsController::class, 'maitso'])->name('maitso');
+    Route::get('/sampana-mena/{id}', [SampanaShowsController::class, 'mena'])->name('mena');
+    Route::get('/sampana-menafify/{id}', [SampanaShowsController::class, 'menafify'])->name('menafify');
+});
+
 
 //administration
 

@@ -111,6 +111,7 @@
                         <div class="col-6 themed-grid-col"> 
                             <img src="/storage/{{$information->image_2}}" alt="{{$information->title}}" width="70%">
                         </div>
+                        
                 @endforeach
 
                 <div style="margin-top: 12px">

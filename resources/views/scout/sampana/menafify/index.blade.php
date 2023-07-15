@@ -17,6 +17,7 @@
                             <p style="font-family: Verdana, Geneva, Tahoma, sans-serif; text-align:justify">
                             {{$text->excerpt($menafifies->content)}}
                             </p>
+                            <a href="{{route('Shows.menafify', ['id' => $menafifies->id])}}" class="btn btn-primary">voir +</a>
                         </div>
                         <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
                         <!--Injectena caroussel eto-->

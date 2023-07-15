@@ -52,9 +52,11 @@
         <span data-purecounter-start="0" data-purecounter-end="100000" data-purecounter-duration="1" class="purecounter"></span>
         <p>MADAGASCAR</p>
       </div>
-
+      @php 
+        $views = App\Models\Membre::count();
+      @endphp
       <div class="col-lg-3 col-6 text-center">
-        <span data-purecounter-start="0" data-purecounter-end="101" data-purecounter-duration="1" class="purecounter"></span>
+        <span data-purecounter-start="0" data-purecounter-end="{{$views}}" data-purecounter-duration="1" class="purecounter"></span>
         <p>X e B</p>
       </div>
 

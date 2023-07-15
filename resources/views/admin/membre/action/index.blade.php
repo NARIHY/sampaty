@@ -17,7 +17,7 @@
         <form action="" method="post">
             @csrf
             <label for="nom">Nom:</label>
-            <input type="text" class="form-control @error('nom') is-invalid @enderror" name="nom" id="nom" value="{{$membre->nom}}">
+            <input type="text" class="form-control @error('nom') is-invalid @enderror" name="nom" id="nom" value="{{@old('nom')}}">
             @error('nom')
             <p style="color:red">
                 {{ $message}}
@@ -27,7 +27,7 @@
 
 
             <label for="prenon">Prénon:</label>
-            <input type="text" class="form-control @error('prenon') is-invalid @enderror" name="prenon" id="prenon" value="{{$membre->prenon}}">
+            <input type="text" class="form-control @error('prenon') is-invalid @enderror" name="prenon" id="prenon" value="{{@old('prenon')}}">
             @error('prenon')
             <p style="color:red">
                 {{ $message}}
@@ -36,7 +36,7 @@
 
 
             <label for="surnon">Surnon</label>
-            <input type="text" class="form-control @error('surnon') is-invalid @enderror" name="surnon" id="surnon" value="{{$membre->surnon}}">
+            <input type="text" class="form-control @error('surnon') is-invalid @enderror" name="surnon" id="surnon" value="{{@old('surnon')}}">
             @error('surnnon')
             <p style="color:red">
                 {{ $message}}
@@ -44,7 +44,7 @@
             @enderror  
 
             <label for="birthday">Date d'anniversaire</label>
-            <input type="date" class="form-control @error('birthday') is-invalid @enderror" name="birthday" id="birthday" value="{{$membre->birthday}}">
+            <input type="date" class="form-control @error('birthday') is-invalid @enderror" name="birthday" id="birthday" value="{{@old('birthday')}}">
             @error('birthday')
             <p style="color:red">
                 {{ $message}}
@@ -53,7 +53,7 @@
 
 
             <label for="age">Age</label>
-            <input type="number" class="form-control @error('age') is-invalid @enderror" name="age" id="age" value="{{$membre->age}}">
+            <input type="number" class="form-control @error('age') is-invalid @enderror" name="age" id="age" value="{{@old('age')}}">
             @error('age')
             <p style="color:red">
                 {{ $message}}
@@ -62,7 +62,7 @@
 
 
             <label for="addresse">Addresse</label>
-            <input type="text" class="form-control @error('addresse') is-invalid @enderror" name="addresse" id="addresse" value="{{$membre->addresse}}">
+            <input type="text" class="form-control @error('addresse') is-invalid @enderror" name="addresse" id="addresse" value="{{@old('addresse')}}">
             @error('addresse')
             <p style="color:red">
                 {{ $message}}

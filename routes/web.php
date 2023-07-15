@@ -26,7 +26,7 @@ use App\Http\Controllers\ProposControlleur;
 use App\Http\Controllers\RegisterControllers;
 use App\Http\Controllers\SampanaAdminControlleur;
 use App\Http\Controllers\SampanaContollers;
-
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -164,6 +164,10 @@ Route::prefix('/administration')->middleware(['auth', 'verified'])->name('Admin.
     Route::get('/Mon-profil',[ProfilControlleur::class, 'index'])->name('profil');
     Route::get('/Mon-profil/{id}/modifier-compte',[ProfilControlleur::class, 'edit'])->name('modify.compte');
     Route::put('/Mon-profil/{id}/modifier-compte',[ProfilControlleur::class, 'update'])->name('modify.update');
+
+    //compte personnel
+    Route::get('/parametre-de-compte', [UserController::class, 'index'])->name('user.connected');
+    Route::put('/parametre-de-compte', [UserController::class, 'update'])->name('user.connected.update');
 });
 
 //route authentification

@@ -149,7 +149,7 @@ $user = Auth::user();
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="{{route('Admin.user.connected')}}">
                 <i class="bi bi-gear"></i>
                 <span>Paramètre du compte</span>
               </a>

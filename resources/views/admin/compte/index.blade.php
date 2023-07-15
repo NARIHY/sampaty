@@ -1,21 +1,18 @@
 @extends('admin')
 
-@section('title', 'Création d\'un compte')
+@section('title', 'Paramètre de compte')
 
 @section('content')
 <section class="section dashboard">
     <div class="pagetitle">
-        
-        <h1>Gestion des comptes</h1>
+        <h1>Paramètre de votre compte</h1>
         <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('Admin.home')}}">Acceuil</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('Admin.auth.index')}}">Gestion des comptes</a></li>
-            <li class="breadcrumb-item active">création d'un compte</li>
+            <li class="breadcrumb-item active">Paramètre de votre compte</li>  
         </ol>
         </nav>
     </div>
-
     <div class="container">
         @if (session('error')) 
             <div class="alert alert-danger">
@@ -30,8 +27,9 @@
         @endif
         <form action="" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <label for="name">Nom</label>
-            <input type="text" name="name" id="name" class="form-control  @error('name') is-invalid @enderror" value="{{ @old('name')}}">
+            <input type="text" name="name" id="name" class="form-control  @error('name') is-invalid @enderror" value="{{ $user->name}}">
             @error('name')
             <p style="color:red">
                 {{ $message}}
@@ -39,7 +37,7 @@
             @enderror
 
             <label for="prenon">Prénon</label>
-            <input type="text" name="prenon" id="prenon" class="form-control  @error('prenon') is-invalid @enderror" value="{{ @old('prenon')}}">
+            <input type="text" name="prenon" id="prenon" class="form-control  @error('prenon') is-invalid @enderror" value="{{ $user->prenon}}">
             @error('prenon')
             <p style="color:red">
                 {{ $message}}
@@ -47,7 +45,7 @@
             @enderror
 
             <label for="addresse">Localisation</label>
-            <input type="text" name="addresse" id="addresse" class="form-control  @error('addresse') is-invalid @enderror" value="{{ @old('addresse')}}">
+            <input type="text" name="addresse" id="addresse" class="form-control  @error('addresse') is-invalid @enderror" value="{{ $user->addresse}}">
             @error('addresse')
             <p style="color:red">
                 {{ $message}}
@@ -55,21 +53,31 @@
             @enderror
 
             <label for="email">Adresse e-mail</label>
-            <input type="email" name="email" id="email" class="form-control  @error('email') is-invalid @enderror" value="{{ @old('email')}}">
+            <input type="email" name="email" id="email" class="form-control  @error('email') is-invalid @enderror" value="{{ $user->email}}">
             @error('email')
             <p style="color:red">
                 {{ $message}}
             </p>
             @enderror
 
-            <label for="picture">Entrer un photo de profil</label>
-            <input type="file" name="picture" id="picture" class="form-control  @error('picture') is-invalid @enderror">
-
+            <div class="row mb-3 text-center" style="margin-top:10px">
+                <div class="col-8 themed-grid-col">
+                    <label for="picture" style="float: left">Modifier la photo de profile</label>
+                    <input type="file" name="picture" id="picture" class="form-control @error('picture') is-invalid @enderror">
+                    <div style="color:red">
+                        @error('picture') {{$message}} @enderror
+                    </div>
+                </div>
+                <div class="col-4 themed-grid-col">
+                    <img src="/storage/{{ $user->picture }}" alt="" width="100%">
+                </div>
+                    
+            </div>
             <label for="genre">Genre</label>
             <select name="genre" id="genre" class="form-control">
                 <option value="">Choisir un genre</option>
-                <option value="Masculin">Masculin</option>
-                <option value="Feminin">Feminin</option>
+                <option value="Masculin" @if($user->genre === 'Masculin') selected @endif>Masculin</option>
+                <option value="Feminin" @if($user->genre === 'Feminin') selected @endif>Feminin</option>
             </select>
 
             @error('genre')
@@ -78,12 +86,7 @@
             </p>
             @enderror
 
-            <label for="position">Rôles</label>
-            <select name="position" id="position" class="form-control @error('position') is-invalid @enderror">
-                <option value="">Choisir le rôle</option>
-                <option value="Moderateur">Moderateur</option>
-                <option value="Administrateur">Administrateur</option>
-            </select>
+            
 
             @error('position')
             <p style="color:red">
@@ -113,6 +116,5 @@
         </div>
         </form>
     </div>
-    
 </section>
 @endsection

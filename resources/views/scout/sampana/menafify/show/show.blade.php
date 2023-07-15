@@ -17,7 +17,7 @@
     </li>
     <li class="breadcrumb-item">
       <a class="link-body-emphasis" href="{{route('Sampana.index')}}">
-        <span class="visually-hidden">Sampana</span>
+        Sampana
       </a>
     </li>
     <li class="breadcrumb-item">
@@ -30,7 +30,7 @@
 </ol>
 
     <div class="container">
-            <h2>{{ $maitsofify->title }}</h2>
+            <h2>{{ $menafify->title }}</h2>
 
             <h3>Sampana: {{$menafify->category}}</h3>
 

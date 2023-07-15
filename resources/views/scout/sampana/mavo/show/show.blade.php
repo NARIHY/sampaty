@@ -17,7 +17,7 @@
     </li>
     <li class="breadcrumb-item">
       <a class="link-body-emphasis" href="{{route('Sampana.index')}}">
-        <span class="visually-hidden">Sampana</span>
+        Sampana
       </a>
     </li>
     <li class="breadcrumb-item">

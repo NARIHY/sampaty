@@ -32,7 +32,7 @@
         <form action="" method="post" enctype="multipart/form-data">
             @csrf 
             <label for="title">Titre</label>
-            <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" >
+            <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" value="{{@old('title')}}">
             <div style="color:red">
                 @error('title') {{$message}} @enderror
             </div>
@@ -73,7 +73,7 @@
 
         <label for="content">Contenu</label>
         <textarea name="content" id="content" class="form-control" cols="30" rows="10">
-            
+            {{@old('content')}}
         </textarea>
         <div style="color:red">
             @error('content') {{$message}} @enderror

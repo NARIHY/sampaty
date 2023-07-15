@@ -18,13 +18,13 @@
         <form action="" method="post" enctype="multipart/form-data">
             @csrf
             <label for="title">Titre</label>
-            <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror">
+            <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" value="{{@old('title')}}">
             <div class="is-invalid">
                 @error('title') {{$message}} @enderror
             </div>
 
             <label for="description">Description</label>
-            <input type="text" name="description" id="description" class="form-control @error('description') is-invalid @enderror">
+            <input type="text" name="description" id="description" class="form-control @error('description') is-invalid @enderror" value="{{@old('description')}}">
             <div class="is-invalid">
                 @error('description') {{$message}} @enderror
             </div>
@@ -61,7 +61,9 @@
             @enderror 
 
             <label for="content"></label>
-            <textarea name="content" id="content" cols="30" rows="10" class="form-control @error('content') is-invalid @enderror"></textarea>
+            <textarea name="content" id="content" cols="30" rows="10" class="form-control @error('content') is-invalid @enderror">
+            {{@old('content')}}
+            </textarea>
             <div class="is-invalid">
                 @error('content') {{$message}} @enderror
             </div>

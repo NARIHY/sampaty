@@ -6,7 +6,7 @@ use App\Http\Requests\blogRequest;
 use App\Models\Blog;
 use App\Models\Sampana;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class BlogAdminControlleur extends Controller
 {
     public function index()
@@ -43,6 +43,10 @@ class BlogAdminControlleur extends Controller
             $data['picture_2'] = $picture_2->store('blog', 'public');
         }
         $blog->update($data);
+        //recuperation de user en session
+        $userConnected = Auth::user();
+        $blog->posted_by = $userConnected->id;
+        $blog->save();
 
         return redirect()->route('Admin.blog')->with('success', 'Création de l\'actualité réussi');
     }
@@ -84,6 +88,10 @@ class BlogAdminControlleur extends Controller
             $data['picture_2'] = $picture_2->store('blog', 'public');
             $blog->update($data);
         }
+        //recuperation de user en session
+        $userConnected = Auth::user();
+        $blog->posted_by = $userConnected->id;
+        $blog->save();
      
         return redirect()->route('Admin.blog.modify.update', ['id' => $blog->id])->with('success', 'modification réussi');
     }

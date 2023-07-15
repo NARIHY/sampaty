@@ -7,6 +7,7 @@ use App\Http\Requests\ActualityUpdateRequest;
 use App\Models\Actuality;
 use App\Models\Sampana;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ActualityControllers extends Controller
 {
@@ -66,6 +67,11 @@ class ActualityControllers extends Controller
         }
         $actuality->update($data);
 
+        //recuperation de user en session
+        $userConnected = Auth::user();
+        $actuality->posted_by = $userConnected->id;
+        $actuality->save();
+
         return redirect()->route('Admin.actualite')->with('success', 'Création de l\'actualité réussi');
     }
 
@@ -114,6 +120,10 @@ class ActualityControllers extends Controller
             $data['picture_3'] = $picture_3->store('actuality', 'public');
             $actuality->update($data);     
         }
+        //recuperation de user en session
+        $userConnected = Auth::user();
+        $actuality->posted_by = $userConnected->id;
+        $actuality->save();
        
         
         return redirect()->route('Admin.actualite.modify.update', ['id' => $actuality->id])->with('success', 'modification réussi');

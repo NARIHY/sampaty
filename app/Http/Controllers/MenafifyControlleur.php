@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MaitsoUpdateRequest;
 use App\Models\Menafify;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MenafifyControlleur extends Controller
 {
@@ -52,6 +53,10 @@ class MenafifyControlleur extends Controller
             $data['image_3'] = $picture_3->store('sampana', 'public');
             $maitso->update($data);
         }
+        //recuperation de user en session
+        $userConnected = Auth::user();
+        $maitso->posted_by = $userConnected->id;
+        $maitso->save();
      
         return redirect()->route('Admin.sampana.menafify.modify', ['id' => $maitso->id])->with('success', 'modification réussi');
     }

@@ -10,6 +10,7 @@ use App\Models\Mavo;
 use App\Models\Mena;
 use App\Models\Menafify;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MaitsoControlleur extends Controller
 {
@@ -57,6 +58,10 @@ class MaitsoControlleur extends Controller
             $data['image_3'] = $picture_3->store('sampana', 'public');
             $maitso->update($data);
         }
+        //recuperation de user en session
+        $userConnected = Auth::user();
+        $maitso->posted_by = $userConnected->id;
+        $maitso->save();
      
         return redirect()->route('Admin.sampana.maitso.modify', ['id' => $maitso->id])->with('success', 'modification réussi');
     }
@@ -91,6 +96,10 @@ class MaitsoControlleur extends Controller
                 $data['image_3'] = $picture_3->store('sampana', 'public');
             }
             $maitso->update($data);
+            //recuperation de user en session
+            $userConnected = Auth::user();
+            $maitso->posted_by = $userConnected->id;
+            $maitso->save();
 
             return redirect()->route('Admin.sampana.view', ['id' => '2'])->with('success', 'Création de la publication réussi');
         
@@ -116,6 +125,10 @@ class MaitsoControlleur extends Controller
                 $data['image_3'] = $picture_3->store('sampana', 'public');
             }
             $mavo->update($data);
+            //recuperation de user en session
+            $userConnected = Auth::user();
+            $mavo->posted_by = $userConnected->id;
+            $mavo->save();
 
             return redirect()->route('Admin.sampana.view', ['id' => '1'])->with('success', 'Création de la publication réussi');
         
@@ -141,6 +154,10 @@ class MaitsoControlleur extends Controller
                 $data['image_3'] = $picture_3->store('sampana', 'public');
             }
             $mena->update($data);
+            //recuperation de user en session
+            $userConnected = Auth::user();
+            $mena->posted_by = $userConnected->id;
+            $mena->save();
 
             return redirect()->route('Admin.sampana.view', ['id' => '3'])->with('success', 'Création de la publication réussi');
         
@@ -166,6 +183,10 @@ class MaitsoControlleur extends Controller
                 $data['image_3'] = $picture_3->store('sampana', 'public');
             }
             $menafify->update($data);
+            //recuperation de user en session
+            $userConnected = Auth::user();
+            $menafify->posted_by = $userConnected->id;
+            $menafify->save();
 
             return redirect()->route('Admin.sampana.view', ['id' => '4'])->with('success', 'Création de la publication réussi');
         

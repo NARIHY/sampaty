@@ -15,9 +15,9 @@ class Blog extends Model
         'title',
         'slug',
         'content',
-        'image',
         'category',
-        'picture_2'
+        'picture_2',
+        'image'
     ];
     public function sampana(): BelongsToMany
     {

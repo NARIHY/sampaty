@@ -14,6 +14,11 @@
         </nav>
     </div>
     <div class="container">
+        @if (session('success')) 
+        <div class="alert alert-success">
+            <h3 class="text-center">{{session('success')}}</h3>
+        </div>
+    @endif
         <form action="" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')

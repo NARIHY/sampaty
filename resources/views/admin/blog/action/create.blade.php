@@ -26,13 +26,13 @@
             <label for="slug">Slogan</label>
             <input type="text" name="slug" id="slug" class="form-control @error('description') is-invalid @enderror" value="{{@old('slug')}}">
             <div style="color:red">
-                @error('description') {{$message}} @enderror
+                @error('slug') {{$message}} @enderror
             </div>
             
             <label for="image">Ajouter un image</label>
             <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror">
             <div style="color:red">
-                @error('picture') {{$message}} @enderror
+                @error('image') {{$message}} @enderror
             </div>
 
             <label for="picture_2">Ajouter une deuxièème image</label>

@@ -54,6 +54,9 @@
               </li>
             </ul>
           @endforeach
+          <div class="d-grid gap-2">
+            <a href="{{route('login')}}" class="btn btn-primary" style="color:white">Se connecter</a>
+          </div>
         </div>
       </div>
     </div>

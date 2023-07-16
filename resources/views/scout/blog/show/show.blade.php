@@ -26,8 +26,10 @@
 
     <div class="container">
             <h2>{{ $blog->title }}</h2>
-
-            <h3>Sampana: {{$blog->category}}</h3>
+      @php
+      $sampana = App\Models\Sampana::findOrFail($blog->category) 
+      @endphp
+            <h3>{{$sampana->name}}</h3>
 
             <p style="text-align: justify">{{$text->filtre($blog->content)}}</p>
 

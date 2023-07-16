@@ -58,8 +58,8 @@ $user = Auth::user();
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
             <li class="dropdown-header">
-              You have 3 new messages
-              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+              Service en cours de création...
+              <span class="badge rounded-pill bg-success p-2 ms-2">Stay tuned</span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -67,11 +67,11 @@ $user = Auth::user();
 
             <li class="message-item">
               <a href="#">
-                <img src="/storage/admin/img/messages-1.jpg" alt="" class="rounded-circle">
+                <img src="/storage/profile/nari.jpg" alt="" class="rounded-circle">
                 <div>
-                  <h4>Maria Hudson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>4 hrs. ago</p>
+                  <h4>Administrateur du site</h4>
+                  <p>Le service de messagerie est en cour de préparation. stay tuned...</p>
+                 
                 </div>
               </a>
             </li>
@@ -79,37 +79,7 @@ $user = Auth::user();
               <hr class="dropdown-divider">
             </li>
 
-            <li class="message-item">
-              <a href="#">
-                <img src="/storage/admin/img/messages-2.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>Anna Nelson</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>6 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="message-item">
-              <a href="#">
-                <img src="/storage/admin/img/messages-3.jpg" alt="" class="rounded-circle">
-                <div>
-                  <h4>David Muldon</h4>
-                  <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                  <p>8 hrs. ago</p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li class="dropdown-footer">
-              <a href="#">Show all messages</a>
-            </li>
+            
 
           </ul><!-- End Messages Dropdown Items -->
 

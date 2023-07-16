@@ -34,18 +34,18 @@
 
             <h3>Sampana: {{$menafify->category}}</h3>
 
-            <p style="text-align: justify">{{$textfify->filtre($menafify->content)}}</p>
+            <p style="text-align: justify">{{$text->filtre($menafify->content)}}</p>
 
             <div class="row mb-3 text-center">
               <div class="col-4 themed-grid-col">
-                <img src="/storage/{{$menafify->image}}" alt="{{$maitso->title}}" width="100%">
+                <img src="/storage/{{$menafify->image}}" alt="{{$menafify->title}}" width="100%">
 
               </div>
               <div class="col-4 themed-grid-col">
-                <img src="/storage/{{$menafify->image_2}}" alt="{{$maitso->title}}" width="100%">
+                <img src="/storage/{{$menafify->image_2}}" alt="{{$menafify->title}}" width="100%">
               </div>
               <div class="col-4 themed-grid-col">
-                <img src="/storage/{{$menafify->image_3}}" alt="{{$maitso->title}}" width="100%">
+                <img src="/storage/{{$menafify->image_3}}" alt="{{$menafify->title}}" width="100%">
               </div>
              
             </div>

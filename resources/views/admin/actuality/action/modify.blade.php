@@ -83,7 +83,7 @@
             </div>
 
             <div class="d-grid gap-2" style="margin-top: 10px">
-                <input type="submit" class="btn btn-primary" value="Ajouter">
+                <input type="submit" class="btn btn-primary" value="Modifier">
             </div>
         </form>
 

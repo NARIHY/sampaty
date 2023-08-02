@@ -124,7 +124,7 @@ $user = Auth::user();
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="{{route('Admin.help')}}">
                 <i class="bi bi-question-circle"></i>
                 <span>Besoin d'aide?</span>
               </a>
@@ -261,7 +261,7 @@ $user = Auth::user();
         </a>
       </li><!-- End F.A.Q Page Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="">
+        <a class="nav-link collapsed" href="{{route('Admin.manuelle')}}">
           <i class="bi bi-question-circle"></i>
           <span>Manuelle d'utilisation</span>
         </a>

@@ -13,6 +13,7 @@ use App\Http\Controllers\BlogControllers;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContacteController;
 use App\Http\Controllers\DeleteControllers;
+use App\Http\Controllers\HelpControlleur;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LoginControlleur;
@@ -178,6 +179,10 @@ Route::prefix('/administration')->middleware(['auth', 'verified'])->name('Admin.
     //compte personnel
     Route::get('/parametre-de-compte', [UserController::class, 'index'])->name('user.connected');
     Route::put('/parametre-de-compte', [UserController::class, 'update'])->name('user.connected.update');
+
+    //help
+    Route::get('/Help', [HelpControlleur::class, 'index'])->name('help');
+    Route::get('/Manuelle-d-utilisation', [HelpControlleur::class, 'manuelle'])->name('manuelle');
 });
 
 //route authentification
